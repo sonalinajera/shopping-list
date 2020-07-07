@@ -2,7 +2,7 @@
 function shoppingList() {
     // add items to list when you have text and you click add item
     // should inherit css properties defined by li 
-    $('button[type="submit"]').on('click', function (event) {
+    $('form').on('submit', function (event) {
         event.preventDefault();
         // need to wrap in if statment when done
         let currentInput = $('#shopping-list-entry').val();
@@ -34,7 +34,7 @@ function shoppingList() {
         // if list first first child's class doesn't have "shopping-item__checked" add 
         //else if it does have "shopping-item__checked" remove
         console.log(event.target);
-        $(event.target).closest('div').prev().toggleClass('shopping-item__checked');
+        $(event.target).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
     });
 
     // should delete item from list when delete button clicked 
